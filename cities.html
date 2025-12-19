@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>城市详情 - 中国城市GDP可视化</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/charts.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📊</span>
+        <span>城市GDP可视化</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="cities.html" class="active">城市详情</a></li>
+        <li><a href="comparison.html">城市对比</a></li>
+        <li><a href="about.html">关于</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="container">
+    <!-- 页面标题 -->
+    <header class="page-header">
+      <h1 class="page-title">城市详情</h1>
+      <p class="page-subtitle">查看各城市的详细GDP数据和经济指标</p>
+    </header>
+
+    <!-- 搜索和筛选 -->
+    <div class="filter-bar">
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索城市名称...">
+      <select class="select-input" id="regionFilter">
+        <option value="">全部地区</option>
+        <option value="华东">华东</option>
+        <option value="华北">华北</option>
+        <option value="华南">华南</option>
+        <option value="华中">华中</option>
+        <option value="西南">西南</option>
+      </select>
+      <select class="select-input" id="sortBy">
+        <option value="gdp-desc">GDP从高到低</option>
+        <option value="gdp-asc">GDP从低到高</option>
+        <option value="growth-desc">增速从高到低</option>
+        <option value="name">按名称排序</option>
+      </select>
+    </div>
+
+    <!-- 城市卡片网格 -->
+    <div class="city-grid" id="cityGrid">
+      <div class="loading" style="grid-column: 1 / -1;"><div class="spinner"></div></div>
+    </div>
+
+    <!-- 城市详情模态框 -->
+    <div class="modal-overlay" id="cityModal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalCityName">城市名称</h2>
+          <button class="modal-close" id="modalClose">×</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- 动态内容 -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>关于项目</h4>
+        <p style="color: #94a3b8; font-size: 0.875rem; line-height: 1.6;">
+          本项目展示中国主要城市的GDP数据，帮助用户了解城市经济发展情况。
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="cities.html">城市详情</a>
+        <a href="comparison.html">城市对比</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="footer-section">
+        <h4>数据来源</h4>
+        <a href="#">国家统计局</a>
+        <a href="#">各城市统计年鉴</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 城市GDP可视化. 数据仅供参考学习使用。</p>
+    </div>
+  </footer>
+
+  <style>
+    /* 模态框样式 */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--card-background);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .modal-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-stat {
+      background: var(--background-color);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .modal-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .modal-stat-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .modal-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-chart-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+  </style>
+
+  <script src="js/main.js"></script>
+  <script src="js/cities.js"></script>
+</body>
+</html>

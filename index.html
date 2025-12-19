@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国城市GDP可视化 - 首页</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/charts.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📊</span>
+        <span>城市GDP可视化</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="cities.html">城市详情</a></li>
+        <li><a href="comparison.html">城市对比</a></li>
+        <li><a href="about.html">关于</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="container">
+    <!-- 页面标题 -->
+    <header class="page-header">
+      <h1 class="page-title">中国城市GDP数据可视化</h1>
+      <p class="page-subtitle">探索中国主要城市的经济发展数据与增长趋势</p>
+    </header>
+
+    <!-- 统计卡片 -->
+    <section class="stats-grid" id="statsGrid">
+      <div class="loading"><div class="spinner"></div></div>
+    </section>
+
+    <!-- 图表区域 -->
+    <div class="grid-2" style="margin-bottom: 2rem;">
+      <!-- GDP排名柱状图 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">2023年GDP排名 Top 10</h3>
+          <span class="tag tag-blue">单位：亿元</span>
+        </div>
+        <div class="chart-container" id="gdpBarChart">
+          <div class="loading"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+      <!-- GDP增长趋势 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Top 5 城市GDP增长趋势</h3>
+          <span class="tag tag-green">2019-2023</span>
+        </div>
+        <div class="chart-container" id="gdpTrendChart">
+          <div class="loading"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 城市概览表格 -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">城市GDP概览</h3>
+        <a href="cities.html" class="btn btn-primary btn-sm">查看全部 →</a>
+      </div>
+      <div class="table-container">
+        <table class="data-table" id="gdpTable">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>城市</th>
+              <th>地区</th>
+              <th>2023年GDP (亿元)</th>
+              <th>同比增长</th>
+              <th>近5年趋势</th>
+            </tr>
+          </thead>
+          <tbody id="gdpTableBody">
+            <tr><td colspan="6" class="loading"><div class="spinner"></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>关于项目</h4>
+        <p style="color: #94a3b8; font-size: 0.875rem; line-height: 1.6;">
+          本项目展示中国主要城市的GDP数据，帮助用户了解城市经济发展情况。
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="cities.html">城市详情</a>
+        <a href="comparison.html">城市对比</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="footer-section">
+        <h4>数据来源</h4>
+        <a href="#">国家统计局</a>
+        <a href="#">各城市统计年鉴</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 城市GDP可视化. 数据仅供参考学习使用。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

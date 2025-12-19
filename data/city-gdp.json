@@ -1,0 +1,165 @@
+{
+  "lastUpdated": "2024-12-01",
+  "cities": [
+    {
+      "id": "shanghai",
+      "name": "上海",
+      "nameEn": "Shanghai",
+      "region": "华东",
+      "gdpData": [
+        { "year": 2019, "gdp": 38155.32 },
+        { "year": 2020, "gdp": 38700.58 },
+        { "year": 2021, "gdp": 43214.85 },
+        { "year": 2022, "gdp": 44652.8 },
+        { "year": 2023, "gdp": 47218.66 }
+      ],
+      "population": 2489.43,
+      "area": 6340.5,
+      "description": "中国最大的经济中心城市，国际金融、贸易和航运中心。"
+    },
+    {
+      "id": "beijing",
+      "name": "北京",
+      "nameEn": "Beijing",
+      "region": "华北",
+      "gdpData": [
+        { "year": 2019, "gdp": 35371.3 },
+        { "year": 2020, "gdp": 36102.6 },
+        { "year": 2021, "gdp": 40269.6 },
+        { "year": 2022, "gdp": 41610.9 },
+        { "year": 2023, "gdp": 43760.7 }
+      ],
+      "population": 2188.6,
+      "area": 16410.54,
+      "description": "中国首都，政治、文化和国际交往中心，科技创新高地。"
+    },
+    {
+      "id": "shenzhen",
+      "name": "深圳",
+      "nameEn": "Shenzhen",
+      "region": "华南",
+      "gdpData": [
+        { "year": 2019, "gdp": 26927.09 },
+        { "year": 2020, "gdp": 27670.24 },
+        { "year": 2021, "gdp": 30664.85 },
+        { "year": 2022, "gdp": 32387.68 },
+        { "year": 2023, "gdp": 34606.4 }
+      ],
+      "population": 1768.16,
+      "area": 1997.47,
+      "description": "中国经济特区，科技创新之都，全球电子信息产业重镇。"
+    },
+    {
+      "id": "guangzhou",
+      "name": "广州",
+      "nameEn": "Guangzhou",
+      "region": "华南",
+      "gdpData": [
+        { "year": 2019, "gdp": 23628.6 },
+        { "year": 2020, "gdp": 25019.11 },
+        { "year": 2021, "gdp": 28231.97 },
+        { "year": 2022, "gdp": 28839.0 },
+        { "year": 2023, "gdp": 30355.73 }
+      ],
+      "population": 1881.06,
+      "area": 7434.4,
+      "description": "华南地区中心城市，国家重要中心城市和综合交通枢纽。"
+    },
+    {
+      "id": "chongqing",
+      "name": "重庆",
+      "nameEn": "Chongqing",
+      "region": "西南",
+      "gdpData": [
+        { "year": 2019, "gdp": 23605.77 },
+        { "year": 2020, "gdp": 25002.79 },
+        { "year": 2021, "gdp": 27894.02 },
+        { "year": 2022, "gdp": 29129.03 },
+        { "year": 2023, "gdp": 30145.79 }
+      ],
+      "population": 3212.43,
+      "area": 82402.95,
+      "description": "中国西部唯一的直辖市，长江上游经济中心和西部大开发重要战略支点。"
+    },
+    {
+      "id": "suzhou",
+      "name": "苏州",
+      "nameEn": "Suzhou",
+      "region": "华东",
+      "gdpData": [
+        { "year": 2019, "gdp": 19235.8 },
+        { "year": 2020, "gdp": 20170.45 },
+        { "year": 2021, "gdp": 22718.34 },
+        { "year": 2022, "gdp": 23958.3 },
+        { "year": 2023, "gdp": 24653.37 }
+      ],
+      "population": 1292.55,
+      "area": 8657.32,
+      "description": "中国最强地级市，制造业重镇，历史文化名城。"
+    },
+    {
+      "id": "chengdu",
+      "name": "成都",
+      "nameEn": "Chengdu",
+      "region": "西南",
+      "gdpData": [
+        { "year": 2019, "gdp": 17012.65 },
+        { "year": 2020, "gdp": 17716.67 },
+        { "year": 2021, "gdp": 19917.0 },
+        { "year": 2022, "gdp": 20817.5 },
+        { "year": 2023, "gdp": 22074.7 }
+      ],
+      "population": 2126.8,
+      "area": 14335.0,
+      "description": "西南地区重要中心城市，国家重要高新技术产业基地。"
+    },
+    {
+      "id": "hangzhou",
+      "name": "杭州",
+      "nameEn": "Hangzhou",
+      "region": "华东",
+      "gdpData": [
+        { "year": 2019, "gdp": 15373.05 },
+        { "year": 2020, "gdp": 16106.0 },
+        { "year": 2021, "gdp": 18109.0 },
+        { "year": 2022, "gdp": 18753.0 },
+        { "year": 2023, "gdp": 20059.0 }
+      ],
+      "population": 1237.6,
+      "area": 16596.0,
+      "description": "浙江省会，数字经济之城，互联网创新高地。"
+    },
+    {
+      "id": "wuhan",
+      "name": "武汉",
+      "nameEn": "Wuhan",
+      "region": "华中",
+      "gdpData": [
+        { "year": 2019, "gdp": 16223.21 },
+        { "year": 2020, "gdp": 15616.1 },
+        { "year": 2021, "gdp": 17716.96 },
+        { "year": 2022, "gdp": 18866.43 },
+        { "year": 2023, "gdp": 20011.65 }
+      ],
+      "population": 1373.9,
+      "area": 8569.15,
+      "description": "华中地区最大城市，九省通衢，科教重镇。"
+    },
+    {
+      "id": "nanjing",
+      "name": "南京",
+      "nameEn": "Nanjing",
+      "region": "华东",
+      "gdpData": [
+        { "year": 2019, "gdp": 14030.15 },
+        { "year": 2020, "gdp": 14817.95 },
+        { "year": 2021, "gdp": 16355.32 },
+        { "year": 2022, "gdp": 16907.85 },
+        { "year": 2023, "gdp": 17421.4 }
+      ],
+      "population": 949.11,
+      "area": 6587.02,
+      "description": "江苏省会，六朝古都，科教名城。"
+    }
+  ]
+}

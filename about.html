@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 - 中国城市GDP可视化</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/charts.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📊</span>
+        <span>城市GDP可视化</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="cities.html">城市详情</a></li>
+        <li><a href="comparison.html">城市对比</a></li>
+        <li><a href="about.html" class="active">关于</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="container">
+    <!-- 页面标题 -->
+    <header class="page-header">
+      <h1 class="page-title">关于本项目</h1>
+      <p class="page-subtitle">了解项目背景、数据来源和使用说明</p>
+    </header>
+
+    <!-- 项目介绍 -->
+    <div class="grid-2" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">📌 项目简介</h3>
+        </div>
+        <div style="color: var(--text-secondary); line-height: 1.8;">
+          <p style="margin-bottom: 1rem;">
+            本项目是一个静态的数据可视化Web应用，旨在展示中国主要城市的GDP数据和经济发展趋势。通过直观的图表和交互功能，帮助用户更好地理解城市经济发展情况。
+          </p>
+          <p>
+            项目采用纯HTML、CSS和JavaScript构建，无需后端服务器，可直接部署在GitHub Pages等静态托管服务上。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">🎯 主要功能</h3>
+        </div>
+        <ul style="color: var(--text-secondary); line-height: 2;">
+          <li>✅ 城市GDP排名展示</li>
+          <li>✅ 多年GDP增长趋势图</li>
+          <li>✅ 城市详细信息查看</li>
+          <li>✅ 多城市对比分析</li>
+          <li>✅ 搜索和筛选功能</li>
+          <li>✅ 响应式设计，支持移动端</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 数据说明 -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <div class="card-header">
+        <h3 class="card-title">📊 数据说明</h3>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>数据项</th>
+              <th>说明</th>
+              <th>单位</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GDP</td>
+              <td>地区生产总值（国内生产总值）</td>
+              <td>亿元人民币</td>
+            </tr>
+            <tr>
+              <td>人口</td>
+              <td>常住人口数量</td>
+              <td>万人</td>
+            </tr>
+            <tr>
+              <td>面积</td>
+              <td>行政区域面积</td>
+              <td>平方公里</td>
+            </tr>
+            <tr>
+              <td>增长率</td>
+              <td>GDP同比增长百分比</td>
+              <td>%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.875rem;">
+        ⚠️ 注意：本项目数据仅供学习参考，实际数据请以官方统计公报为准。
+      </p>
+    </div>
+
+    <!-- 技术栈 -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <div class="card-header">
+        <h3 class="card-title">🛠️ 技术栈</h3>
+      </div>
+      <div class="stats-grid" style="margin-top: 1rem;">
+        <div class="stat-card">
+          <div class="stat-icon blue">📄</div>
+          <div class="stat-content">
+            <div class="stat-label">前端结构</div>
+            <div class="stat-value" style="font-size: 1.25rem;">HTML5</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">🎨</div>
+          <div class="stat-content">
+            <div class="stat-label">样式设计</div>
+            <div class="stat-value" style="font-size: 1.25rem;">CSS3</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">⚡</div>
+          <div class="stat-content">
+            <div class="stat-label">交互逻辑</div>
+            <div class="stat-value" style="font-size: 1.25rem;">JavaScript</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">📦</div>
+          <div class="stat-content">
+            <div class="stat-label">数据存储</div>
+            <div class="stat-value" style="font-size: 1.25rem;">JSON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用说明 -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <div class="card-header">
+        <h3 class="card-title">📖 使用说明</h3>
+      </div>
+      <div style="color: var(--text-secondary); line-height: 1.8;">
+        <h4 style="color: var(--text-primary); margin: 1rem 0 0.5rem;">部署到GitHub Pages</h4>
+        <ol style="padding-left: 1.5rem;">
+          <li>将项目代码推送到GitHub仓库</li>
+          <li>进入仓库 Settings → Pages</li>
+          <li>选择 Source 为 main 分支</li>
+          <li>等待部署完成即可访问</li>
+        </ol>
+
+        <h4 style="color: var(--text-primary); margin: 1.5rem 0 0.5rem;">本地运行</h4>
+        <p>由于使用了Fetch API加载JSON数据，需要通过本地服务器运行：</p>
+        <pre style="background: var(--background-color); padding: 1rem; border-radius: var(--radius-md); margin-top: 0.5rem; overflow-x: auto;"><code># 使用 Python
+python -m http.server 8000
+
+# 或使用 Node.js (需安装 http-server)
+npx http-server</code></pre>
+      </div>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">📬 联系与反馈</h3>
+      </div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary">
+          <span>⭐</span> GitHub仓库
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <span>🐛</span> 报告问题
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <span>💡</span> 功能建议
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>关于项目</h4>
+        <p style="color: #94a3b8; font-size: 0.875rem; line-height: 1.6;">
+          本项目展示中国主要城市的GDP数据，帮助用户了解城市经济发展情况。
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="cities.html">城市详情</a>
+        <a href="comparison.html">城市对比</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="footer-section">
+        <h4>数据来源</h4>
+        <a href="#">国家统计局</a>
+        <a href="#">各城市统计年鉴</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 城市GDP可视化. 数据仅供参考学习使用。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
