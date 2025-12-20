@@ -186,15 +186,178 @@ function formatNumber(number, decimals = 0) {
   return number.toFixed(decimals)
 }
 
+// 水平柱状图函数
 function createHorizontalBarChart(container, chartData) {
-  // 模拟创建柱状图
-  container.innerHTML = `<div>柱状图数据: ${JSON.stringify(chartData)}</div>`
+    // 清空容器并移除加载状态
+    container.innerHTML = '';
+    
+    // 创建canvas元素
+    const canvas = document.createElement('canvas');
+    canvas.id = 'gdpBarChartCanvas';
+    canvas.style.width = '100%';
+    canvas.style.height = '400px';
+    container.appendChild(canvas);
+    
+    // 销毁之前的图表实例
+    if (window.barChart) {
+        window.barChart.destroy();
+    }
+    
+    // 获取上下文
+    const ctx = canvas.getContext('2d');
+    
+    // 只取前10个数据
+    const top10Data = chartData.slice(0, 10);
+    
+    // 创建水平柱状图
+    window.barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: top10Data.map(item => item.label),
+            datasets: [{
+                label: 'GDP (亿元)',
+                data: top10Data.map(item => item.value),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(153, 102, 255, 0.7)',
+                    'rgba(255, 159, 64, 0.7)',
+                    'rgba(199, 199, 199, 0.7)',
+                    'rgba(83, 102, 255, 0.7)',
+                    'rgba(40, 159, 64, 0.7)',
+                    'rgba(210, 199, 199, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(199, 199, 199, 1)',
+                    'rgba(83, 102, 255, 1)',
+                    'rgba(40, 159, 64, 1)',
+                    'rgba(210, 199, 199, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', // 水平柱状图
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: '2023年GDP排名 Top 10',
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'GDP (亿元)'
+                    }
+                }
+            }
+        }
+    });
 }
 
+// 折线图函数
 function createLineChart(container, datasets) {
-  // 模拟创建趋势图
-  container.innerHTML = `<div>趋势图数据: ${JSON.stringify(datasets)}</div>`
+    // 清空容器
+    container.innerHTML = '';
+    
+    // 创建canvas元素
+    const canvas = document.createElement('canvas');
+    canvas.id = 'gdpTrendChartCanvas';
+    canvas.style.width = '100%';
+    canvas.style.height = '400px';
+    container.appendChild(canvas);
+    
+    // 销毁之前的图表实例
+    if (window.trendChart) {
+        window.trendChart.destroy();
+    }
+    
+    // 获取上下文
+    const ctx = canvas.getContext('2d');
+    
+    // 年份标签
+    const years = [2019, 2020, 2021, 2022, 2023];
+    
+    // 创建折线图
+    window.trendChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: datasets.map((dataset, index) => ({
+                label: dataset.label,
+                data: dataset.data,
+                borderColor: getChartColor(index),
+                backgroundColor: getChartColor(index, 0.1),
+                borderWidth: 3,
+                fill: true,
+                tension: 0.3
+            }))
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Top 5 城市GDP增长趋势',
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    title: {
+                        display: true,
+                        text: 'GDP (亿元)'
+                    }
+                }
+            }
+        }
+    });
 }
+
+// 获取图表颜色
+function getChartColor(index, alpha = 1) {
+    const colors = [
+        'rgba(255, 99, 132, ALPHA)',     // 红色
+        'rgba(54, 162, 235, ALPHA)',     // 蓝色
+        'rgba(255, 206, 86, ALPHA)',     // 黄色
+        'rgba(75, 192, 192, ALPHA)',     // 绿色
+        'rgba(153, 102, 255, ALPHA)',    // 紫色
+        'rgba(255, 159, 64, ALPHA)',     // 橙色
+        'rgba(83, 102, 255, ALPHA)',     // 深蓝
+        'rgba(40, 159, 64, ALPHA)',      // 深绿
+        'rgba(210, 199, 199, ALPHA)',    // 灰色
+        'rgba(199, 40, 64, ALPHA)'       // 深红
+    ];
+    
+    const colorIndex = index % colors.length;
+    return colors[colorIndex].replace('ALPHA', alpha);
+}
+
 
 function createSparkline(data, width) {
   // 模拟创建迷你图
